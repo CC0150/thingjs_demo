@@ -1,8 +1,17 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { bootstrapScene } from '@/thing'
+import {
+  changeColor,
+  addImageMarker,
+  driveCar,
+  reset,
+  scaleCar,
+  rotateCar,
+  createBox,
+  setImage,
+} from '@/hooks'
 
-// 3D 容器，始终由 App.vue 持有，不随页面切换销毁
 const div3dRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
@@ -18,17 +27,53 @@ onMounted(() => {
 
 <template>
   <!-- 3D容器 -->
-  <div ref="div3dRef" id="div3d"></div>
+  <div class="container">
+    <div class="buttons">
+      <button @click="changeColor">改变小车颜色</button>
+      <button @click="addImageMarker">小车添加图片标志</button>
+      <button @click="driveCar">小车行驶</button>
+      <button @click="scaleCar">小车缩放</button>
+      <button @click="rotateCar">小车旋转</button>
+      <button @click="createBox">创建盒子</button>
+      <button @click="setImage">设置盒子图片</button>
+      <button @click="reset">重置场景</button>
+    </div>
+    <div ref="div3dRef" id="div3d"></div>
+  </div>
 </template>
 
 <style>
-html,
-body,
-#app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.container {
+  position: relative;
+}
+
+.buttons {
+  position: absolute;
+  width: 200px;
+  right: 10px;
+  top: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    height: 30px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 #div3d {

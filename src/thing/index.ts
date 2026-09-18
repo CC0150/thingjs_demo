@@ -1,7 +1,5 @@
 import { SCENE_CONFIG } from './config'
-import { changeColor, addMarker, driveCar } from './interactions'
 
-/** THING.App 全局单例，整个应用只应存在一个 */
 let app: ThingApp | null = null
 
 /**
@@ -48,17 +46,18 @@ export async function bootstrapScene(container: HTMLElement) {
     onComplete: (ev) => {
       // console.log('场景加载完成')
       const campus = ev.campus
-      // console.log('园区对象', campus)
+
       // 切换到园区层级，开启层级
-      thingApp.level.change(campus)
-
-      // 自动调整相机位置
-      thingApp.camera.fit(campus)
-
-      changeColor()
-      addMarker()
-      // 先画路线，再让小车沿着它跑
-      driveCar()
+      thingApp.level.change(campus, {
+        complete: () => {
+          // 层级切换完成后，再设置相机
+          thingApp.camera.flyTo({
+            position: [162.64985603989814, 29.6774697721321, 181.5000326501234],
+            target: [165.04913966800245, 1.500981255502019, 120.6860038796044],
+            duration: 1000,
+          })
+        },
+      })
     },
     // 进度回调函数
     onProgress: (progress) => {

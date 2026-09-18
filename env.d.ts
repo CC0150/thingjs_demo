@@ -12,7 +12,7 @@ interface ThingApp {
     /** 进度回调，0 ~ 1 */
     onProgress?: (progress: number) => void
   }): Promise<unknown>
-  level: { change(level: unknown): void }
+  level: { change(level: unknown, options?: { complete?: () => void }): void }
   destroy(): void
 }
 
