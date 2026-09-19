@@ -5,6 +5,9 @@ import { flyToLocation } from './useFlyToLocation'
 export default async function addImageMarker() {
   const thingApp = getThingApp()
   const car3 = thingApp.query('car3')[0]
+  if (!car3) {
+    return
+  }
 
   const markerName = car3.name + '_image_marker'
 

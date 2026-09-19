@@ -28,7 +28,7 @@ export default async function createBox() {
   return box
 }
 
-export function resetBox() {
+export async function resetBox() {
   const thingApp = getThingApp()
   const box = thingApp.query('box')[0]
   if (box) {

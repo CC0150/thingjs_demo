@@ -1,13 +1,13 @@
 import { SCENE_CONFIG } from './config'
 
-let app: ThingApp | null = null
+let app: THING.App | null = null
 
 /**
  * 创建 THING.App，重复调用时返回已有实例。
  * 不做这个判断的话，热更新会 new 出第二个 App 抢同一个画布，
  * 表现为画面闪烁、事件触发多次。
  */
-export function createThingApp(container: HTMLElement): ThingApp {
+export function createThingApp(container: HTMLElement): THING.App {
   if (app) {
     return app
   }
@@ -21,7 +21,7 @@ export function createThingApp(container: HTMLElement): ThingApp {
 }
 
 /** 获取当前 App 实例 */
-export function getThingApp(): ThingApp {
+export function getThingApp(): THING.App {
   if (!app) {
     throw new Error('THING.App 尚未初始化，请先调用 bootstrapScene')
   }

@@ -1,22 +1,29 @@
 import { resetDriveCar } from './useDriveCar'
 import { resetColor } from './useChangeColor'
-import { resetImageMarker } from './useAddMarker'
+import { resetImageMarker } from './useAddImageMarker'
 import { resetBox } from './useCreateBox'
 import { resetImage } from './useSetImage'
+import { resetOpacity } from './useSetOpacity'
 import { resetFlyToLocation } from './useFlyToLocation'
+import { resetAnimation } from './usePlayAnimation'
+import { resetLabelMarker } from './useAddLabelMarker'
 
 /** 重置所有状态 */
-export default function reset() {
+export default async function reset() {
   const locationOptions = {
-    position: [161.9484124313557, 37.91501932636114, 199.27934447933853],
+    position: [162.64985603989814, 29.6774697721321, 181.5000326501234],
     target: [165.04913966800245, 1.500981255502019, 120.6860038796044],
     time: 1500,
   }
 
+  resetOpacity()
   resetDriveCar()
   resetColor()
+  resetLabelMarker()
   resetImageMarker()
-  resetBox()
   resetImage()
-  resetFlyToLocation(locationOptions)
+  await resetBox()
+  await resetAnimation()
+
+  await resetFlyToLocation(locationOptions)
 }
