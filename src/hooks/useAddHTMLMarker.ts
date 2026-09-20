@@ -1,10 +1,7 @@
 import { getThingApp } from '@/thing'
 import { flyToLocation } from './useFlyToLocation'
-import { resetImageMarker } from './useAddImageMarker'
 
 export default async function addHTMLMarker() {
-  resetImageMarker()
-
   const thingApp = getThingApp()
   const car3 = thingApp.query('car3')[0]
   if (!car3) {

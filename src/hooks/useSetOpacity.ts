@@ -20,5 +20,10 @@ export default async function setOpacity(opacity: number) {
 }
 
 export function resetOpacity() {
-  setOpacity(1)
+  const thingApp = getThingApp()
+  const car3 = thingApp.query('car3')[0]
+  if (!car3) {
+    return
+  }
+  car3.style.opacity = 1
 }

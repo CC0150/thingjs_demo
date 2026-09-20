@@ -1,7 +1,7 @@
 import { changeColor, resetColor } from './useChangeColor'
 import moveCar from './useMoveCar'
 import driveCar from './useDriveCar'
-import { reset } from './useReset'
+import { resetScene, reset } from './useReset'
 import scaleCar from './useScale'
 import rotateCar from './useRotate'
 import addImageMarker from './useAddImageMarker'
@@ -19,11 +19,12 @@ export {
   moveCar,
   addHTMLMarker,
   changeColor,
+  reset,
   addImageMarker,
   addLabelMarker,
   resetColor,
   driveCar,
-  reset,
+  resetScene,
   scaleCar,
   rotateCar,
   createBox,

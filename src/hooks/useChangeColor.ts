@@ -2,8 +2,6 @@ import { getThingApp } from '@/thing'
 import { flyToLocation } from './useFlyToLocation'
 import { reset } from './useReset'
 
-let colorIndex = -1
-
 /** 改变小车的颜色 */
 export async function changeColor(color: string) {
   reset()
