@@ -1,15 +1,17 @@
 import { getThingApp } from '@/thing'
 import { flyToLocation } from './useFlyToLocation'
+import { reset } from './useReset'
 
 /** 添加图片 Marker */
 export default async function addImageMarker() {
+  reset()
   const thingApp = getThingApp()
-  const car3 = thingApp.query('car3')[0]
-  if (!car3) {
+  const car2 = thingApp.query('car2')[0]
+  if (!car2) {
     return
   }
 
-  const markerName = car3.name + '_image_marker'
+  const markerName = car2.name + '_image_marker'
 
   const existMarker = thingApp.query(markerName)[0]
   if (existMarker) {
@@ -17,8 +19,8 @@ export default async function addImageMarker() {
   }
 
   const locationOptions = {
-    position: [204.0637667426916, 3.039460394188695, 136.8487308838883],
-    target: [199.78687551321588, 0.1660950978845783, 122.48043802836956],
+    position: [199.46499359705732, 4.126382487540652, 138.00024752378835],
+    target: [194.94086173328733, 1.0869122752355682, 122.8013453193945],
     time: 1500,
   }
 
@@ -26,8 +28,8 @@ export default async function addImageMarker() {
 
   const marker = new THING.Marker({
     name: markerName,
-    parent: car3,
-    localPosition: [0, car3.boundingBox.size[1], 0],
+    parent: car2,
+    localPosition: [0, car2.boundingBox.size[1], 0],
     style: {
       // image: new THING.ImageTexture(new URL('@/assets/images/warning.png', import.meta.url).href),
       image: new URL('@/assets/images/warning.png', import.meta.url).href,
@@ -42,8 +44,8 @@ export default async function addImageMarker() {
 /** 重置图片 Marker */
 export function resetImageMarker() {
   const thingApp = getThingApp()
-  const car3 = thingApp.query('car3')[0]
-  const markerName = car3.name + '_image_marker'
+  const car2 = thingApp.query('car2')[0]
+  const markerName = car2.name + '_image_marker'
   const marker = thingApp.query(markerName)[0]
   if (marker) {
     marker.destroy()

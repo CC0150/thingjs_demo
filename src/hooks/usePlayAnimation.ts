@@ -30,7 +30,7 @@ export default async function playAnimation() {
   console.log(animation)
 }
 
-export async function resetAnimation() {
+export function resetAnimation() {
   const thingApp = getThingApp()
   const car3 = thingApp.query('car3')[0]
   if (!car3) {
@@ -38,5 +38,5 @@ export async function resetAnimation() {
   }
   const animationName = car3.animations[0].name
 
-  await car3.stopAnimation(animationName)
+  car3.stopAnimation(animationName)
 }

@@ -1,10 +1,12 @@
 import { getThingApp } from '@/thing'
 import { flyToLocation } from './useFlyToLocation'
+import { reset } from './useReset'
 
 let colorIndex = -1
 
 /** 改变小车的颜色 */
-export default async function changeColor() {
+export async function changeColor(color: string) {
+  reset()
   const thingApp = getThingApp()
   const car1 = thingApp.query('car1')[0]
   if (!car1) return
@@ -17,9 +19,7 @@ export default async function changeColor() {
 
   await flyToLocation(locationOptions)
 
-  const colors = ['red', 'blue', 'purple', null]
-  colorIndex = (colorIndex + 1) % colors.length
-  car1.style.color = colors[colorIndex]
+  car1.style.color = color
 }
 
 /** 重置小车颜色 */
