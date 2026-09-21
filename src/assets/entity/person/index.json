@@ -1,0 +1,49 @@
+{
+  "sourceFile": "E:\\processor\\work\\6bd0d2b8a93249dfa3fa84dd15a26b4e_a1864f73df07475a9efb4f653808341c_999_转换中\\MAX\\5000RenWu03.maxbk0.max",
+  "gltfFiles": [
+    "ZY6DQ42M97UOAWWMRENV591NPEP8RFJQT.model"
+  ],
+  "texFiles": {
+    "AR1Q2JTICJDKCTJUDQ6N51JSYADWX86N2": ".bin",
+    "10SQODIRE826OTU7DQYQOU6ODWY7T1PK2": "smd_1.jpg",
+    "OWCXTPQE9J858RDQEA71XWUUPJ7NP1N14": "smd_3.png",
+    "W285FPIITJ0IQ82EAR7II1W6GEDICQUVG": "smd_2.jpg",
+    "E1KTJ2WQ10CCW6NIRTN2IEZCXZU1O1NNQ": "smd_6.jpg",
+    "TN1YQDNOEJCMA2VR28WVXU0CM98WPQ2VO": "smd_4.jpg",
+    "H2CTZ62Y12UTRUPKTJ81TO6758Y25Z0SE": "smd_5.jpg"
+  },
+  "size": [
+    0.617932,
+    0.41036,
+    1.88009
+  ],
+  "faces": 56213,
+  "verts": 36577,
+  "nodes": 69,
+  "createTime": "2025-10-15 18:10:48",
+  "author": "9777",
+  "computer": "XTZJ-20220928QY",
+  "max": "#(22000, 55, 0, 22, 0, 0, 757, 2020, \"\")",
+  "version": "2.1",
+  "extensionsFile": "extensions.ext",
+  "anim": [
+    "走",
+    "跑",
+    "爬梯子上楼",
+    "右手推门",
+    "双手向左转阀门",
+    "一直爬",
+    "右手开门",
+    "关单开柜门",
+    "右旋阀门",
+    "推下开关合闸",
+    "推上开关开闸",
+    "右手短按按钮",
+    "右手长按按钮",
+    "右旋转开关",
+    "左旋转开关",
+    "开双开柜门",
+    "关双开柜门",
+    "向下爬"
+  ]
+}

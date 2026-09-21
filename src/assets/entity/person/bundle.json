@@ -1,0 +1,45 @@
+{
+  "name": "5000RenWu03",
+  "type": "model",
+  "version": "2.1",
+  "author": "uino ModelTeam",
+  "description": "",
+  "extras": {
+    "info": {
+      "faces": 56213,
+      "verts": 36577,
+      "nodes": 69
+    },
+    "size": [
+      0.617932,
+      0.41036,
+      1.88009
+    ],
+    "gltfFiles": [
+      "ZY6DQ42M97UOAWWMRENV591NPEP8RFJQT.model"
+    ],
+    "additionalFiles": [
+      "extensions.ext"
+    ],
+    "animations": [
+      "走",
+      "跑",
+      "爬梯子上楼",
+      "右手推门",
+      "双手向左转阀门",
+      "一直爬",
+      "右手开门",
+      "关单开柜门",
+      "右旋阀门",
+      "推下开关合闸",
+      "推上开关开闸",
+      "右手短按按钮",
+      "右手长按按钮",
+      "右旋转开关",
+      "左旋转开关",
+      "开双开柜门",
+      "关双开柜门",
+      "向下爬"
+    ]
+  }
+}

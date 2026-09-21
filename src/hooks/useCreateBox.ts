@@ -25,13 +25,42 @@ export default async function createBox() {
     localPosition: [0, 0.6, 1.7],
   })
 
+  box.fadeIn({
+    duration: 800,
+  })
+
+  const worker = new THING.Entity({
+    name: 'worker',
+    url: new URL('@/assets/entity/person/', import.meta.url).href,
+    parent: car2,
+    localPosition: [-2, 0, 0],
+  })
+
+  worker.fadeIn({
+    duration: 800,
+  })
+
   return box
 }
 
 export function resetBox() {
   const thingApp = getThingApp()
   const box = thingApp.query('box')[0]
+  const worker = thingApp.query('worker')[0]
   if (box) {
-    box.destroy()
+    box.fadeOut({
+      duration: 800,
+      onComplete: () => {
+        box.destroy()
+      },
+    })
+  }
+  if (worker) {
+    worker.fadeOut({
+      duration: 800,
+      onComplete: () => {
+        worker.destroy()
+      },
+    })
   }
 }

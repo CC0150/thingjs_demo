@@ -9,12 +9,14 @@ import { resetAnimation } from './usePlayAnimation'
 import { resetLabelMarker } from './useAddLabelMarker'
 import { resetHTMLMarker } from './useAddHTMLMarker'
 import { resetView } from './useChangeView'
+import { resetFlagClick } from './useFlagClick'
 
 /** 重置所有状态 */
 export function reset() {
   resetOpacity()
   resetDriveCar()
   resetColor()
+  resetFlagClick()
   resetLabelMarker()
   resetImageMarker()
   resetView()

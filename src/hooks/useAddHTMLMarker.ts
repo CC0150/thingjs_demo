@@ -25,15 +25,20 @@ export default async function addHTMLMarker() {
   const carImage1 = new URL('@/assets/images/car1.png', import.meta.url).href
   const carImage2 = new URL('@/assets/images/car2.png', import.meta.url).href
 
+  const objectName = car3.name
+  const objectID = car3.id
+
   element.innerHTML = `
-  <div style="display:flex; align-items:center; justify-content:center;
-              height:30px; box-sizing:border-box;
-              background:rgba(0,0,0,0.6); padding:0 10px; border-radius:4px;
-              white-space:nowrap; cursor:pointer;">
-    <img id="marker-img" src="${carImage1}"
-         style="width:20px; height:20px; margin-right:6px; display:block; flex-shrink:0;" />
-    <span style="color:#fff; font-size:14px; line-height:20px; white-space:nowrap;">2号叉车</span>
-  </div>
+<div style="display:flex; flex-direction:column;
+            align-items:center; justify-content:center;
+            box-sizing:border-box;
+            background:rgba(0,0,0,0.6); padding:8px 10px; border-radius:4px;
+            white-space:nowrap; cursor:pointer;">
+  <img id="marker-img" src="${carImage1}"
+       style="width:20px; height:20px; margin-bottom:6px; display:block; flex-shrink:0;" />
+  <div style="color:#fff; font-size:14px; line-height:20px; white-space:nowrap;">物体编号：${objectID}</div>
+  <div style="color:#fff; font-size:14px; line-height:20px; white-space:nowrap;">物体名称：${objectName}</div>
+</div>
 `
 
   // 记录当前显示的是第几张图
@@ -45,7 +50,7 @@ export default async function addHTMLMarker() {
     element,
     localPosition: [0, car3.boundingBox.size[1], 0],
     pivot: [0.5, 0],
-    offset: [0, 1, 0], // 相对父对象的偏移量，用于调整HTML标志的位置
+    offset: [0, 0.5, 0], // 相对父对象的偏移量，用于调整HTML标志的位置
     renderType: THING.RenderType.Plane, // 平面渲染，标签不会随视角旋转
     // renderType: THING.RenderType.Sprite, // 标签会随视角旋转
   }).on('click', () => {
@@ -54,9 +59,6 @@ export default async function addHTMLMarker() {
     if (!img) return
     isFirstImg = !isFirstImg
     img.src = isFirstImg ? carImage1 : carImage2
-
-    const span = element.querySelector('span')
-    span.textContent = isFirstImg ? '黄色叉车' : '蓝色叉车'
   })
 
   return htmlMarker

@@ -24,6 +24,6 @@ export async function changeColor(color: string) {
 export function resetColor() {
   const app = getThingApp()
   const car1 = app.query('car1')[0]
-  if (!car1) return (colorIndex = -1)
+  if (!car1) return
   car1.style.color = null
 }

@@ -9,9 +9,9 @@ function getCar2() {
 }
 
 /** 获取路由点 */
-function getRoutePoints(y: number): number[][] {
+function getRoutePoints(): number[][] {
   const car2 = getCar2()
-  const [x, , z] = car2.position
+  const [x, y, z] = car2.position
   return [
     [x, y, z],
     [x - 10, y, z],
@@ -21,14 +21,14 @@ function getRoutePoints(y: number): number[][] {
 }
 
 /** 创建路由线 */
-function createRoute(y: number) {
+function createRoute() {
   if (routeLine) return routeLine
   routeLine = new THING.RouteLine({
     name: 'Routeline',
     width: 0.3,
     closure: true,
     arrow: true,
-    points: getRoutePoints(y),
+    points: getRoutePoints(),
   })
   routeLine.visible = false
   return routeLine
@@ -41,10 +41,9 @@ let originalRotation: number[] | null = null
 
 export default async function driveCar() {
   const car2 = getCar2()
-  const y = car2.position[1]
 
   // 线和车用同一个 y
-  const route = createRoute(y)
+  const route = createRoute()
 
   originalPosition = [...car2.position]
   originalRotation = [...car2.rotation]
@@ -60,9 +59,9 @@ export default async function driveCar() {
   route.visible = true
 
   car2.movePath({
-    path: getRoutePoints(y),
+    path: getRoutePoints(),
     closure: true,
-    time: 10000,
+    time: 8000,
     orientToPath: true,
     complete: () => {
       // resetDriveCar()

@@ -17,7 +17,7 @@
     <button @click="scaleCar">小车缩放</button>
     <button @click="rotateCar">小车旋转</button>
     <button @click="toggleBox">
-      {{ isBoxCreated ? '移除盒子' : '创建盒子' }}
+      {{ isBoxCreated ? '移除盒子和工人' : '创建盒子和工人' }}
     </button>
     <button @click="toggleImage">
       {{ isImageSet ? '移除盒子图片' : '设置盒子图片' }}
@@ -25,7 +25,7 @@
     <button @click="toggleOpacity">
       {{ isOpacitySet ? '重置透明度' : '设置透明度' }}
     </button>
-    <button @click="changeView">切换视角</button>
+    <!-- <button @click="changeView">切换视角</button> -->
     <button @click="togglePlayAnimation">
       {{ isAnimationPlaying ? '重置动画' : '播放动画' }}
     </button>
@@ -50,7 +50,7 @@ import {
   resetScene,
   reset,
   playAnimation,
-  changeView,
+  // changeView,
   scaleCar,
   rotateCar,
   createBox,
@@ -82,14 +82,22 @@ const isImageSet = ref(false)
 const tipContent = ref('')
 const tipRef = useTemplateRef<InstanceType<typeof BaseTooltip>>('tipRef')
 
+/** 在屏幕顶部弹出提示，3 秒后自动消失 */
+function showTip(content: string) {
+  tipContent.value = content
+  tipRef.value?.show()
+}
+
 /** 切换小车颜色 */
 function toggleChangeColor() {
   if (!isColorChanged.value) {
     changeColor('red')
     isColorChanged.value = true
+    showTip('小车颜色已改变')
   } else {
     resetColor()
     isColorChanged.value = false
+    showTip('小车颜色已重置')
   }
 }
 
@@ -98,9 +106,11 @@ function togglePlayAnimation() {
   if (!isAnimationPlaying.value) {
     playAnimation()
     isAnimationPlaying.value = true
+    showTip('动画已播放')
   } else {
     reset()
     isAnimationPlaying.value = false
+    showTip('动画已重置')
   }
 }
 
@@ -109,9 +119,11 @@ function toggleImageMarker() {
   if (!isImageMarker.value) {
     addImageMarker()
     isImageMarker.value = true
+    showTip('图片标志已添加')
   } else {
     resetImageMarker()
     isImageMarker.value = false
+    showTip('图片标志已移除')
   }
 }
 
@@ -120,9 +132,11 @@ function toggleLabelMarker() {
   if (!isLabelMarker.value) {
     addLabelMarker()
     isLabelMarker.value = true
+    showTip('标签已添加')
   } else {
     resetLabelMarker()
     isLabelMarker.value = false
+    showTip('标签已移除')
   }
 }
 
@@ -131,9 +145,11 @@ function toggleHTMLMarker() {
   if (!isHTMLMarker.value) {
     addHTMLMarker()
     isHTMLMarker.value = true
+    showTip('HTML标志已添加')
   } else {
     resetHTMLMarker()
     isHTMLMarker.value = false
+    showTip('HTML标志已移除')
   }
 }
 
@@ -142,22 +158,26 @@ function toggleOpacity() {
   if (!isOpacitySet.value) {
     setOpacity(0.5)
     isOpacitySet.value = true
+    showTip('透明度已设置')
   } else {
     resetOpacity()
     isOpacitySet.value = false
+    showTip('透明度已重置')
   }
 }
 
-/** 创建/删除盒子 */
+/** 创建/删除盒子和工人 */
 function toggleBox() {
   if (!isBoxCreated.value) {
     createBox()
     isBoxCreated.value = true
+    showTip('盒子和工人已创建')
   } else {
     resetBox()
     resetImage()
     isBoxCreated.value = false
     isImageSet.value = false
+    showTip('盒子和工人已移除')
   }
 }
 
@@ -166,6 +186,7 @@ function toggleImage() {
   if (isImageSet.value) {
     resetImage()
     isImageSet.value = false
+    showTip('盒子图片已移除')
     return
   }
 
@@ -174,13 +195,8 @@ function toggleImage() {
     return
   }
 
+  showTip('盒子已设置图片')
   isImageSet.value = true
-}
-
-/** 在屏幕顶部弹出提示，3 秒后自动消失 */
-function showTip(content: string) {
-  tipContent.value = content
-  tipRef.value?.show()
 }
 
 /** 统一重置所有状态 */
@@ -195,6 +211,7 @@ function resetAll() {
   isOpacitySet.value = false
   isBoxCreated.value = false
   isImageSet.value = false
+  showTip('所有状态已重置')
 }
 </script>
 

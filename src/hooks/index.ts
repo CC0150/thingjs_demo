@@ -14,10 +14,13 @@ import changeView from './useChangeView'
 import playAnimation from './usePlayAnimation'
 import drawLine from './useDrawLine'
 import { changeLevelToBuilding, goBackLevel } from './useChangeLevel'
+import { bindBuildingClick } from './useBuildingClick'
+import { bindFlagClick, unbindFlagClick, resetFlagClick } from './useFlagClick'
 
 export {
   moveCar,
   addHTMLMarker,
+  bindBuildingClick,
   changeColor,
   reset,
   addImageMarker,
@@ -35,4 +38,7 @@ export {
   drawLine,
   changeLevelToBuilding,
   goBackLevel,
+  bindFlagClick,
+  unbindFlagClick,
+  resetFlagClick,
 }

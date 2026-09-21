@@ -1,0 +1,29 @@
+{
+    "name": "9cb4c682732b4100a53da64912d919dd",
+    "type": "model",
+    "version": "2.0",
+    "author": "TX",
+    "description": "",
+    "extras": {
+        "traceID": "9cb4c682732b4100a53da64912d919dd",
+        "info": {
+            "mesh": 4,
+            "verts": 46989,
+            "faces": 23399
+        },
+        "size": [
+            1.8773,
+            3.3208,
+            3.6671
+        ],
+        "gltfFiles": [
+            "index.gltf"
+        ],
+        "texFiles": [],
+        "createTime": "2024-04-01 15:28:50",
+        "sourceFile": "/model-dir/nova/upload/9cb4c682732b4100a53da64912d919dd/9cb4c682732b4100a53da64912d919dd.fbx",
+        "anim": [
+            "Take 001"
+        ]
+    }
+}

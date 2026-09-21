@@ -19,7 +19,6 @@ export default async function playAnimation() {
   const animation = car3.animations[0]
 
   animation.duration = 1000
-  // animation.speed = 0.5  // 这样设置动画速度没效果
 
   await car3.playAnimation({
     name: '_defaultAnim_',
